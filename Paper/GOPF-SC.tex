@@ -1,0 +1,359 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Gross Output Production Functions and Spatial Dependence},
+  pdfauthor={Hans Martinez},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Gross Output Production Functions and Spatial Dependence}
+\author{Hans Martinez}
+\date{2023-10-10}
+
+\begin{document}
+\maketitle
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, interior hidden, boxrule=0pt, enhanced, breakable, frame hidden, borderline west={3pt}{0pt}{shadecolor}]}{\end{tcolorbox}}\fi
+
+\hypertarget{intro}{%
+\section*{Intro}\label{intro}}
+\addcontentsline{toc}{section}{Intro}
+
+Key Idea: Review latest spatial inference estimators on gross output
+production functions framework using firm-level Colombian data (à la T.
+Conley, Gonçalves, and Hansen 2018).
+
+Using several dissimilarity measures, I could compare the latest spatial
+inference methods, including different ways of clustering the standard
+errors. How? I could construct dissimilarity measures using firms'
+characteristics such as share of skilled and unskilled labor, or share
+of imports and exports. With the dissimilarity measures on hand, I can
+also compare MW's (Müller and Watson 2022b, 2022a) and Kernel
+estimators. In addition, I can compare traditional s.e.
+clustering\footnote{Because these variables are available in the
+  Colombian data, it is natural for researchers to cluster the standard
+  errors by metropolitan area or by subsectors.} with the
+cluster-learning method by Cao et al. (2021).
+
+To the best of my understanding, there is not a guide regarding the
+best-practices when dealing with the inference in the estimation of
+gross-output production functions. The literature has focused in
+obtaining production function and productivity unbiased estimates.
+
+Alternatively, the productivity variance-covariance matrix might be of
+interests to researchers and policy-makers. For example, the
+productivity variance-covariance matrix across sectors could indicate
+how productivity shocks diffuse through other sectors across the
+economy. This might be of interest to policymakers because they can
+impulse policies that have the largest positive effect on the whole
+economy. The Var-Covar matrix within sectors, using skilled/unskilled
+labor or local/foreign purchases/sales, might inform researchers about
+the productivity spillover effects between firms.
+
+In the gross output production function framework, an output shock and a
+productivity shock form the error term. The output shock is independent
+of the inputs (usually, capital, labor, and intermediates), is not
+serially or cross-sectionally correlated, and has mean zero.
+
+Productivity, on the other hand, is observed by the firm when choosing
+input quantities, but unobserved by the econometrician. The well-known
+\emph{simultaneity} problem. In addition, productivity is assumed to
+follow a Markov process. The rationale is that productivity is
+persistent. Researchers assume in practice a linear AR(1) functional
+form.
+
+Because production functions are commonly estimated by industry sector,
+both the error term and productivity have sector specific variances.
+Researchers assume technology in the same industry is common for all
+industries. Hence, firms vary only in their productivity.
+
+I can leave the error term as a random output shock and focus on
+productivity. If we think about technology and how it diffuses through
+the economy and how innovations in one sector spill over to other
+sectors and companies, we can back up the estimates with a solid
+theoretical model.
+
+\hypertarget{setting}{%
+\section{Setting}\label{setting}}
+
+Firms produce gross output \(Y_{it}\) given a production function
+\(Y_{it}=G(K_{it},L_{it},M_{it})e^{\omega_{it}+\varepsilon_{it}}\) and a
+productivity shock \(\omega_{it}\) using capital \(K_{it}\), labor
+\(L_{it}\), and intermediates \(M_{it}\).
+
+\[
+y_{it}=g(k_{it},l_{it},m_{it})+\omega_{it}+\varepsilon_{it}
+\]
+
+where \(\varepsilon_{it}\) is an output shock that is not part of the
+information set of the firm. The productivity shock \(\omega_{it}\) is
+known when taking input decisions, giving rise to the well-known
+simultaneity problem in estimating production functions. It is usually
+assumed that the output shock is iid, and that the productivity shock
+follows a Markov process\footnote{In T. G. Conley et al. (2003),
+  \(\omega_{it}\) is serially uncorrelated, independent of
+  \(\varepsilon_{it}\), expectation zero, but it is correlated across
+  sectors as a function of economic distance. \(\varepsilon_{it}\) is
+  serially uncorrelated, independent across sectors with sector-specific
+  variance.}. In practice, researchers assume an AR(1) model
+
+\[
+\omega_{it}=h(\omega_{it-1})+\eta_{it}
+\]
+
+where \(\eta_{it}\) is iid
+
+\hypertarget{location-and-dissimilarity-measure}{%
+\section{Location and dissimilarity
+measure}\label{location-and-dissimilarity-measure}}
+
+The firm-level Colombian data contains information on firm's
+characteristics, inputs, and outputs. The data also indicates the firms'
+metropolitan area and country region.
+
+I could construct several dissimilarity measures:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Labor market (T. G. Conley, Flyer, and Tsiang 2003): The Colombian
+  data includes firm-level labor detailed by skilled and unskilled
+  labor, as well as managers, local and foreign technicians, their wages
+  and benefits.
+\item
+  Industry sectors (T. G. Conley et al. 2003): In the case of the
+  Colombian data, the firm-level survey does not detail sales per
+  sector. However, it does include the share of local and export sales,
+  and the share of locally and imported inputs. It also includes the
+  firm's four-digit sector code; industries are usually defined at the
+  three-digit level.
+\item
+  Firm characteristics: The data also details firms' value of capital in
+  land, buildings, machinery, and office equipment; it also contains
+  some details on industrial expenses such as maintenance and industrial
+  work by other establishment; and general expenses such as publicity
+  and insurances.
+\end{enumerate}
+
+\hypertarget{to-do}{%
+\section{To do}\label{to-do}}
+
+\begin{itemize}
+\tightlist
+\item
+  Investigate if there exist an input-output matrix by industry sector
+  for Colombia 80s.
+\item
+  What are these metropolitan areas? Is there geographical information,
+  latitude and altitude?
+\item
+  Can other dataset be linked to these areas, like a Census.
+\end{itemize}
+
+\hypertarget{references}{%
+\section*{References}\label{references}}
+\addcontentsline{toc}{section}{References}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-Cao2021}{}}%
+Cao, Jianfei, Christian Hansen, Damian Kozbur, and Lucciano Villacorta.
+2021. {``Inference for Dependent Data with Learned Clusters,''} July.
+\url{http://arxiv.org/abs/2107.14677}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Conley2003}{}}%
+Conley, Timothy G, Bill Dupor, Gadi Barlevy, Susanto Basu, Gerald
+Carlino, Xiao-Hong Chen, Adeline Delavande, et al. 2003. {``A Spatial
+Analysis of Sectoral Complementarity.''} \emph{Journal of Political
+Economy}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Conleyetal2003}{}}%
+Conley, Timothy G, Fredrick Flyer, and Grace R Tsiang. 2003.
+{``Spillovers from Local Market Human Capital and the Spatial
+Distribution of Productivity in Malaysia.''} \emph{Advances in Economic
+Analysis and Policy3} 3. \url{http://www.bepress.com/bejeap.}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Conley2018}{}}%
+Conley, Timothy, Silvia Gonçalves, and Christian Hansen. 2018.
+{``Inference with Dependent Data in Accounting and Finance
+Applications.''} \emph{Journal of Accounting Research} 56 (September):
+1139--1203. \url{https://doi.org/10.1111/1475-679X.12219}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Muller2022ECTA}{}}%
+Müller, Ulrich K, and Mark W Watson. 2022a. {``SPATIAL CORRELATION
+ROBUST INFERENCE.''} \emph{Econometrica} 90: 2901--35.
+\url{https://doi.org/10.3982/ECTA19465}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Muller2022JBES}{}}%
+---------. 2022b. {``Spatial Correlation Robust Inference in Linear
+Regression and Panel Models.''} \emph{Journal of Business \& Economic
+Statistics} 00: 1--15.
+\url{https://doi.org/10.1080/07350015.2022.2127737}.
+
+\end{CSLReferences}
+
+
+
+\end{document}
