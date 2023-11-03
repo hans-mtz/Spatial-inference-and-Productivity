@@ -6,6 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Hans Martinez">
+<meta name="dcterms.date" content="2023-11-03">
 
 <title>Gross Output Production Functions and Spatial Dependence</title>
 <style>
@@ -20,7 +22,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="GOPF-SC_files/libs/clipboard/clipboard.min.js"></script>
@@ -39,10 +60,11 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="fullcontent">
+<body>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="../../Output/GOPF-SC.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -54,7 +76,19 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Hans Martinez </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 3, 2023</p>
+    </div>
+  </div>
   
     
   </div>
@@ -62,25 +96,124 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="to-do" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="to-do">To Do</h2>
+<ul>
+<li>Investigate if there exists an input-output matrix by industry sector for Colombia during the 80s.</li>
+<li>What are these metropolitan areas? Is there geographical information, such as latitude and altitude?</li>
+<li>Can other datasets be linked to these areas, like a Census?</li>
+<li>Simulations in GNR?</li>
+</ul>
+<!-- Intro -->
+</section>
 <section id="intro" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="intro">Intro</h2>
-<p>Key Idea: Review latest spatial inference estimators on gross output production functions framework.</p>
-<p>Compare cluster-learning using dissimilarity measures vs clustering by metropolitan area or by subsectors, using well-known Colombian data. Construct within sector dissimilarity measure using firm’s available characteristics on skilled and unskilled labor, capital, energy consumption, share of imports and exports.</p>
+<p>Key Idea: Review the latest spatial inference estimators on gross output production functions framework using firm-level Colombian data <span class="citation" data-cites="Conley2018">(à la <a href="#ref-Conley2018" role="doc-biblioref">T. Conley, Gonçalves, and Hansen 2018</a>)</span>.</p>
+<p>Using several dissimilarity measures, I could compare the latest spatial inference methods, including different ways of clustering the standard errors. How? I could construct dissimilarity measures using firms’ characteristics such as the share of skilled and unskilled labor, or the share of imports and exports. With the dissimilarity measures on hand, I can also compare MW’s <span class="citation" data-cites="Muller2022JBES Muller2022ECTA">(<a href="#ref-Muller2022JBES" role="doc-biblioref">Müller and Watson 2022b</a>, <a href="#ref-Muller2022ECTA" role="doc-biblioref">2022a</a>)</span> and Kernel estimators. In addition, I can compare traditional s.e. clustering<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> with the cluster-learning method by <span class="citation" data-cites="Cao2021">Cao et al. (<a href="#ref-Cao2021" role="doc-biblioref">2021</a>)</span>.</p>
+<p>To the best of my understanding, there is no guide regarding the best practices when dealing with the inference in the estimation of gross-output production functions. The literature has focused on obtaining production function and productivity unbiased estimates.</p>
+<p>Alternatively, the productivity variance-covariance matrix might be of interest to researchers and policy-makers. For example, the productivity variance-covariance matrix across sectors could indicate how productivity shocks diffuse through other sectors across the economy. This might be of interest to policymakers because they can impulse policies that have the largest positive effect on the whole economy. The Var-Covar matrix within sectors, using skilled/unskilled labor or local/foreign purchases/sales, might inform researchers about the productivity spillover effects between firms.</p>
+<p>In the gross output production function framework, an output shock and a productivity shock form the error term. The output shock is independent of the inputs (usually, capital, labor, and intermediates), is not serially or cross-sectionally correlated, and has a mean zero.</p>
+<p>Productivity, on the other hand, is observed by the firm when choosing input quantities, but unobserved by the econometrician. The well-known <em>simultaneity</em> problem. In addition, productivity is assumed to follow a Markov process. The rationale is that productivity is persistent. Researchers assume in practice a linear AR(1) functional form.</p>
+<p>Because production functions are commonly estimated by the industry sector, both the error term and productivity have sector-specific variances. Researchers assume technology in the same industry is common for all industries. Hence, firms vary only in their productivity.</p>
+<p>I can leave the error term as a random output shock and focus on productivity. If we think about technology and how it diffuses through the economy and how innovations in one sector spill over to other sectors and companies, we can back up the estimates with a solid theoretical model.</p>
+<!-- Dissimilarity measure -->
 </section>
-<section id="setting" class="level2">
-<h2 class="anchored" data-anchor-id="setting">Setting</h2>
+<section id="location-and-dissimilarity-measure" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="location-and-dissimilarity-measure"><span class="header-section-number">1</span> Location and dissimilarity measure</h2>
+<p>The firm-level Colombian data contains information on the firm’s characteristics, inputs, and outputs. The data also indicates the firms’ metropolitan area and country region.</p>
+<p>I could construct several dissimilarity measures:</p>
+<ol type="1">
+<li>Labor market <span class="citation" data-cites="Conleyetal2003">(<a href="#ref-Conleyetal2003" role="doc-biblioref">T. G. Conley, Flyer, and Tsiang 2003</a>)</span>: The Colombian data includes firm-level labor detailed by skilled and unskilled labor, as well as managers, local and foreign technicians, their wages, and benefits.</li>
+<li>Industry sectors <span class="citation" data-cites="Conley2003">(<a href="#ref-Conley2003" role="doc-biblioref">T. G. Conley et al. 2003</a>)</span>: In the case of Colombian data, the firm-level survey does not detail sales per sector. However, it does include the share of local and export sales and the share of local and imported inputs. It also includes the firm’s four-digit sector code; industries are usually defined at the three-digit level.</li>
+<li>Firm characteristics: The data also details firms’ value of capital in land, buildings, machinery, and office equipment; it also contains some details on industrial expenses such as maintenance and industrial work by other establishments; and general expenses such as publicity and insurances.</li>
+</ol>
+<!-- Setting -->
+</section>
+<section id="setting" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="setting"><span class="header-section-number">2</span> Setting</h2>
 <p>Firms produce gross output <span class="math inline">\(Y_{it}\)</span> given a production function <span class="math inline">\(Y_{it}=G(K_{it},L_{it},M_{it})e^{\omega_{it}+\varepsilon_{it}}\)</span> and a productivity shock <span class="math inline">\(\omega_{it}\)</span> using capital <span class="math inline">\(K_{it}\)</span>, labor <span class="math inline">\(L_{it}\)</span>, and intermediates <span class="math inline">\(M_{it}\)</span>.</p>
 <p><span class="math display">\[
 y_{it}=g(k_{it},l_{it},m_{it})+\omega_{it}+\varepsilon_{it}
 \]</span></p>
-<p>where <span class="math inline">\(\varepsilon_{it}\)</span> is an output shock that is not part of the information set of the firm. The productivity shock <span class="math inline">\(\omega_{it}\)</span> is known when taking input decisions, giving rise to the well-known simultaneity problem in estimating production functions. It is usually assumed that the output shock is iid, and that the productivity shock follows a Markov process. In practice, researchers assume</p>
+<p>where <span class="math inline">\(\varepsilon_{it}\)</span> is an output shock that is not part of the information set of the firm. The productivity shock <span class="math inline">\(\omega_{it}\)</span> is known when taking input decisions, giving rise to the well-known simultaneity problem in estimating production functions. It is usually assumed that the output shock is i.i.d., and that the productivity shock follows a Markov process<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. In practice, researchers assume an AR(1) model</p>
 <p><span class="math display">\[
 \omega_{it}=h(\omega_{it-1})+\eta_{it}
 \]</span></p>
 <p>where <span class="math inline">\(\eta_{it}\)</span> is iid</p>
+<section id="estimating-productivity" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="estimating-productivity"><span class="header-section-number">2.1</span> Estimating productivity</h3>
+<p>One popular method to estimate productivity is <span class="citation" data-cites="Gandhi2020">Gandhi, Navarro, and Rivers (<a href="#ref-Gandhi2020" role="doc-biblioref">2020</a>)</span>. The authors start with the firm’s cost-minimization problem</p>
+<p><span id="eq-cost-min"><span class="math display">\[
+max_{M_{it}} P_{t}\mathbb{E}[Y_{it}]- \rho_{t}M_{it}
+\tag{1}\]</span></span></p>
+<p>Taking the first order condition of <a href="#eq-cost-min">Equation&nbsp;1</a> with respect to intermediates, in logs, and rearranging, we can get to the following expression</p>
+<p><span class="math display">\[
+s_{it}=D^{\mathcal{E}}(k_{it}, l_{it},m_{it})+\varepsilon_{it}
+\]</span></p>
+<p>where <span class="math inline">\(s_{it}=\ln(\frac{\rho_t M_{it}}{P_t Y_{it}})\)</span>, <span class="math inline">\(D(\cdot)\)</span> is the output elasticity of the intermediates, and <span class="math inline">\(\mathcal{E}\)</span> denotes the constant resulting from firms taking the expectation over <span class="math inline">\(\varepsilon_{it}\)</span>. The authors show both <span class="math inline">\(D(\cdot)\)</span> and <span class="math inline">\(\mathcal{E}\)</span> are identified under common assumptions.</p>
+<p>Then, to recover the Markov process of productivity, note that</p>
+<p><span class="math display">\[
+\mathcal{Y}_{it}\equiv y_{it}-\varepsilon_{it}-\int D(k_{it}, l_{it},m_{it})\text{d}m_{it} = -\mathcal{C}(k_{it},l_{it})+\omega_{it}
+\]</span></p>
+<p>The authors show that the Markov process of productivity is identified up to a constant by replacing <span class="math inline">\(\omega_{it}\)</span>, as follows</p>
+<p><span class="math display">\[
+\mathcal{Y}_{it}=-\mathcal{C}(k_{it},l_{it})+h(\mathcal{Y}_{it-1}+\mathcal{C}(k_{it-1},l_{it-1}))+\eta_{it}
+\]</span></p>
+<!-- Intro -->
+</section>
+</section>
+<section id="gnrs-monte-carlo-simulations" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="gnrs-monte-carlo-simulations"><span class="header-section-number">3</span> GNR’s Monte Carlo Simulations</h2>
+<p><span class="citation" data-cites="Gandhi2020">Gandhi, Navarro, and Rivers (<a href="#ref-Gandhi2020" role="doc-biblioref">2020</a>)</span> conduct several Monte Carlo experiments to evaluate the performance of using time-series variation as a source of identification. The authors show that relying on aggregate time-series variation provides weak identification in practice.</p>
+<p>In the simulations, firms solve a dynamic optimization problem that is solved numerically. The authors simplify the production function to only depend on capital <span class="math inline">\(K_{it}\)</span> and intermediate inputs <span class="math inline">\(M_{it}\)</span>. Different functional forms of the production function <span class="math inline">\(G(K_{it},L_{it})e^{\omega_{it}+\varepsilon_{it}}\)</span>, such as Cobb-Douglas, CES, and translog are considered.</p>
+<p><span class="math inline">\(\varepsilon_{it}\)</span> is distributed <span class="math inline">\(N(0,\sigma_\varepsilon)\)</span> and <span class="math inline">\(\omega_{it}\)</span> follows an AR(1) process</p>
+<p><span class="math display">\[
+\omega_{it}=\delta_0+\delta\omega_{it-1}+\eta_{it}
+\]</span></p>
+<p>where <span class="math inline">\(\eta_{it}\)</span> is distributed <span class="math inline">\(N(0,\sigma_\omega)\)</span>.</p>
+<p>Investment <span class="math inline">\(I_{it}\)</span> determines the next period’s capital stock via the law of motion</p>
+<p><span class="math display">\[
+K_{it_1}+(1-\kappa_i)+I_{it}
+\]</span></p>
+<p>The price of output is normalized to one. The prices of investment is fixed. Finally, the price of intermediates follows an AR(1) process.</p>
+<p>All parameters were selected to roughly match the estimates from the Chilean and Colombian datasets.</p>
+<p>The problem is solved numerically by value function iteration.</p>
+</section>
+<section id="references" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Cao2021" class="csl-entry" role="listitem">
+Cao, Jianfei, Christian Hansen, Damian Kozbur, and Lucciano Villacorta. 2021. <span>“Inference for Dependent Data with Learned Clusters,”</span> July. <a href="http://arxiv.org/abs/2107.14677">http://arxiv.org/abs/2107.14677</a>.
+</div>
+<div id="ref-Conley2003" class="csl-entry" role="listitem">
+Conley, Timothy G, Bill Dupor, Gadi Barlevy, Susanto Basu, Gerald Carlino, Xiao-Hong Chen, Adeline Delavande, et al. 2003. <span>“A Spatial Analysis of Sectoral Complementarity.”</span> <em>Journal of Political Economy</em>.
+</div>
+<div id="ref-Conleyetal2003" class="csl-entry" role="listitem">
+Conley, Timothy G, Fredrick Flyer, and Grace R Tsiang. 2003. <span>“Spillovers from Local Market Human Capital and the Spatial Distribution of Productivity in Malaysia.”</span> <em>Advances in Economic Analysis and Policy3</em> 3. <a href="http://www.bepress.com/bejeap.">http://www.bepress.com/bejeap.</a>
+</div>
+<div id="ref-Conley2018" class="csl-entry" role="listitem">
+Conley, Timothy, Silvia Gonçalves, and Christian Hansen. 2018. <span>“Inference with Dependent Data in Accounting and Finance Applications.”</span> <em>Journal of Accounting Research</em> 56 (September): 1139–1203. <a href="https://doi.org/10.1111/1475-679X.12219">https://doi.org/10.1111/1475-679X.12219</a>.
+</div>
+<div id="ref-Gandhi2020" class="csl-entry" role="listitem">
+Gandhi, Amit, Salvador Navarro, and David A Rivers. 2020. <span>“On the Identification of Gross Output Production Functions.”</span> <em>Journal of Political Economy</em> 128 (June): 2973–3016.
+</div>
+<div id="ref-Muller2022ECTA" class="csl-entry" role="listitem">
+Müller, Ulrich K, and Mark W Watson. 2022a. <span>“SPATIAL CORRELATION ROBUST INFERENCE.”</span> <em>Econometrica</em> 90: 2901–35. <a href="https://doi.org/10.3982/ECTA19465">https://doi.org/10.3982/ECTA19465</a>.
+</div>
+<div id="ref-Muller2022JBES" class="csl-entry" role="listitem">
+———. 2022b. <span>“Spatial Correlation Robust Inference in Linear Regression and Panel Models.”</span> <em>Journal of Business &amp; Economic Statistics</em> 00: 1–15. <a href="https://doi.org/10.1080/07350015.2022.2127737">https://doi.org/10.1080/07350015.2022.2127737</a>.
+</div>
+</div>
 </section>
 
-</main>
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Because these variables are available in the Colombian data, it is natural for researchers to cluster the standard errors by metropolitan area or by subsectors.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>In <span class="citation" data-cites="Conley2003">T. G. Conley et al. (<a href="#ref-Conley2003" role="doc-biblioref">2003</a>)</span>, <span class="math inline">\(\omega_{it}\)</span> is serially uncorrelated, independent of <span class="math inline">\(\varepsilon_{it}\)</span>, expectation zero, but it is correlated across sectors as a function of economic distance. <span class="math inline">\(\varepsilon_{it}\)</span> is serially uncorrelated, independent across sectors with sector-specific variance.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

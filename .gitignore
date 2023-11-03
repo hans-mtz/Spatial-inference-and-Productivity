@@ -3,6 +3,10 @@
 *.fls
 *.synctex.gz
 *.fdb_latexmk
-*.pdf
+fdb_latexmk
+*.fls
+*.log
+*.aux
+# *.pdf
 *.mat
 RelatedLit/DatasheetAndReplicationFiles/

@@ -1,0 +1,46 @@
+
+## Setting
+
+Firms produce gross output $Y_{it}$ given a production function $Y_{it}=G(K_{it},L_{it},M_{it})e^{\omega_{it}+\varepsilon_{it}}$ and a productivity shock $\omega_{it}$ using capital $K_{it}$, labor $L_{it}$, and intermediates $M_{it}$. 
+
+$$
+y_{it}=g(k_{it},l_{it},m_{it})+\omega_{it}+\varepsilon_{it}
+$$
+
+where $\varepsilon_{it}$ is an output shock that is not part of the information set of the firm. The productivity shock $\omega_{it}$ is known when taking input decisions, giving rise to the well-known simultaneity problem in estimating production functions. It is usually assumed that the output shock is i.i.d., and that the productivity shock follows a Markov process[^conley]. In practice, researchers assume an AR(1) model
+
+$$
+\omega_{it}=h(\omega_{it-1})+\eta_{it}
+$$
+
+where $\eta_{it}$ is iid
+
+[^conley]: In @Conley2003, $\omega_{it}$ is serially uncorrelated, independent of $\varepsilon_{it}$, expectation zero, but it is correlated across sectors as a function of economic distance. $\varepsilon_{it}$ is serially uncorrelated, independent across sectors with sector-specific variance.
+
+### Estimating productivity
+
+One popular method to estimate productivity is @Gandhi2020. The authors start with the firm's cost-minimization problem
+
+$$
+max_{M_{it}} P_{t}\mathbb{E}[Y_{it}]- \rho_{t}M_{it}
+$$ {#eq-cost-min}
+
+Taking the first order condition of @eq-cost-min with respect to intermediates, in logs, and rearranging, we can get to the following expression
+
+$$
+s_{it}=D^{\mathcal{E}}(k_{it}, l_{it},m_{it})+\varepsilon_{it}
+$$
+
+where $s_{it}=\ln(\frac{\rho_t M_{it}}{P_t Y_{it}})$, $D(\cdot)$ is the output elasticity of the intermediates, and $\mathcal{E}$ denotes the constant resulting from firms taking the expectation over $\varepsilon_{it}$. The authors show both $D(\cdot)$ and $\mathcal{E}$ are identified under common assumptions.
+
+Then, to recover the Markov process of productivity, note that
+
+$$
+\mathcal{Y}_{it}\equiv y_{it}-\varepsilon_{it}-\int D(k_{it}, l_{it},m_{it})\text{d}m_{it} = -\mathcal{C}(k_{it},l_{it})+\omega_{it}
+$$
+
+The authors show that the Markov process of productivity is identified up to a constant by replacing $\omega_{it}$, as follows
+
+$$
+\mathcal{Y}_{it}=-\mathcal{C}(k_{it},l_{it})+h(\mathcal{Y}_{it-1}+\mathcal{C}(k_{it-1},l_{it-1}))+\eta_{it}
+$$

@@ -1,0 +1,10 @@
+
+## Location and dissimilarity measure
+
+The firm-level Colombian data contains information on the firm's characteristics, inputs, and outputs. The data also indicates the firms' metropolitan area and country region.  
+
+I could construct several dissimilarity measures:
+
+1. Labor market [@Conleyetal2003]: The Colombian data includes firm-level labor detailed by skilled and unskilled labor, as well as managers, local and foreign technicians, their wages, and benefits. 
+2. Industry sectors [@Conley2003]: In the case of Colombian data, the firm-level survey does not detail sales per sector. However, it does include the share of local and export sales and the share of local and imported inputs. It also includes the firm's four-digit sector code; industries are usually defined at the three-digit level.
+3. Firm characteristics: The data also details firms' value of capital in land, buildings, machinery, and office equipment; it also contains some details on industrial expenses such as maintenance and industrial work by other establishments; and general expenses such as publicity and insurances.

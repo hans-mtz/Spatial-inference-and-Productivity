@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.13)  10 OCT 2023 11:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.13)  3 NOV 2023 10:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -739,42 +739,42 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 186.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 194.
+(Font)              <10> on input line 212.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 194.
+(Font)              <7> on input line 212.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 194.
+(Font)              <5> on input line 212.
  [1
 
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 2626) in paragraph at lines 240--244
+Underfull \hbox (badness 2626) in paragraph at lines 290--294
 \T1/lmr/m/n/10 (+20) Firms pro-duce gross out-put $\OML/lmm/m/it/10 Y[]$ \T1/lmr/m/n/10 (+20) given a pro-duc-tion func-tion $\OML/lmm/m/it/10 Y[] \OT1/lmr/m/n/10 (+20) =
  []
 
 
-Underfull \hbox (badness 1668) in paragraph at lines 240--244
+Underfull \hbox (badness 1668) in paragraph at lines 290--294
 \OML/lmm/m/it/10 G\OT1/lmr/m/n/10 (+20) (\OML/lmm/m/it/10 K[]; L[]; M[]\OT1/lmr/m/n/10 (+20) )\OML/lmm/m/it/10 e[]$ \T1/lmr/m/n/10 (+20) and a pro-duc-tiv-ity shock $\OML/lmm/m/it/10 ![]$ \T1/lmr/m/n/10 (+20) us-ing cap-i-tal $\OML/lmm/m/it/10 K[]$\T1/lmr/m/n/10 (+20) ,
  []
 
-[2]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 306.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [3] (./GOPF-SC.aux) ) 
+[2] [3] [4] [5] (./GOPF-SC.aux) ) 
 Here is how much of TeX's memory you used:
- 28301 strings out of 478268
- 554648 string characters out of 5846347
- 891720 words of memory out of 5000000
- 45894 multiletter control sequences out of 15000+600000
- 527880 words of font info for 127 fonts, out of 8000000 for 9000
+ 28340 strings out of 478268
+ 555141 string characters out of 5846347
+ 889874 words of memory out of 5000000
+ 45903 multiletter control sequences out of 15000+600000
+ 534740 words of font info for 139 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,8n,89p,1089b,425s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy7.pfb>
-Output written on GOPF-SC.pdf (3 pages, 234476 bytes).
+ 83i,8n,89p,1089b,362s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on GOPF-SC.pdf (5 pages, 271731 bytes).
 PDF statistics:
- 163 PDF objects out of 1000 (max. 8388607)
- 125 compressed objects within 2 object streams
- 26 named destinations out of 1000 (max. 500000)
- 32821 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 207 PDF objects out of 1000 (max. 8388607)
+ 159 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 36933 words of extra memory for PDF output out of 42996 (max. 10000000)
 

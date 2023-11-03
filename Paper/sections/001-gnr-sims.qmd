@@ -1,0 +1,26 @@
+## GNR's Monte Carlo Simulations
+
+@Gandhi2020 conduct several Monte Carlo experiments to evaluate the performance of using time-series variation as a source of identification. The authors show that relying on aggregate time-series variation provides weak identification in practice.
+
+In the simulations, firms solve a dynamic optimization problem that is solved numerically. The authors simplify the production function to only depend on capital $K_{it}$ and intermediate inputs $M_{it}$. Different functional forms of the production function $G(K_{it},L_{it})e^{\omega_{it}+\varepsilon_{it}}$, such as Cobb-Douglas, CES, and translog are considered. 
+
+$\varepsilon_{it}$ is distributed $N(0,\sigma_\varepsilon)$ and $\omega_{it}$ follows an AR(1) process
+
+$$
+\omega_{it}=\delta_0+\delta\omega_{it-1}+\eta_{it}
+$$
+
+where $\eta_{it}$ is distributed $N(0,\sigma_\omega)$.
+
+Investment $I_{it}$ determines the next period's capital stock via the law of motion
+
+$$
+K_{it_1}+(1-\kappa_i)+I_{it}
+$$
+
+The price of output is normalized to one. The prices of investment is fixed. Finally, the price of intermediates follows an AR(1) process.
+
+All parameters were selected to roughly match the estimates from the Chilean and Colombian datasets.
+
+The problem is solved numerically by value function iteration.
+

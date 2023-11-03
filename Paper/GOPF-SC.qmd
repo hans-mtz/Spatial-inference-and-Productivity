@@ -9,6 +9,7 @@ format:
         # resource-path: 
         #     - "Simulations/Products"
         latex-output-dir: Output
+    html: default
 number-sections: true
 author: Hans Martinez
 date: today
@@ -17,59 +18,24 @@ abstract: |
 bibliography: biblio.bib
 ---
 
-## Intro {-}
+## To Do {-}
 
-Key Idea: Review latest spatial inference estimators on gross output production functions framework using firm-level Colombian data [à la @Conley2018].
+- Investigate if there exists an input-output matrix by industry sector for Colombia during the 80s.
+- What are these metropolitan areas? Is there geographical information, such as latitude and altitude? 
+- Can other datasets be linked to these areas, like a Census?
+- Simulations in GNR?
 
-Using several dissimilarity measures, I could compare the latest spatial inference methods, including different ways of clustering the standard errors. How? I could construct dissimilarity measures using firms' characteristics such as share of skilled and unskilled labor, or share of imports and exports. With the dissimilarity measures on hand, I can also compare MW's [@Muller2022JBES; @Muller2022ECTA] and Kernel estimators. In addition, I can compare traditional s.e. clustering[^clust] with the cluster-learning method by @Cao2021.
+<!-- Intro -->
+{{< include sections/000-intro.qmd >}}
 
-[^clust]: Because these variables are available in the Colombian data, it is natural for researchers to cluster the standard errors by metropolitan area or by subsectors.
+<!-- Dissimilarity measure -->
+{{< include sections/020-dissimilarity.qmd >}}
 
-To the best of my understanding, there is not a guide regarding the best-practices when dealing with the inference in the estimation of gross-output production functions. The literature has focused in obtaining production function and productivity unbiased estimates.
+<!-- Setting -->
+{{< include sections/010-setting.qmd >}}
 
-Alternatively, the productivity variance-covariance matrix might be of interests to researchers and policy-makers. For example, the productivity variance-covariance matrix across sectors could indicate how productivity shocks diffuse through other sectors across the economy. This might be of interest to policymakers because they can impulse policies that have the largest positive effect on the whole economy. The Var-Covar matrix within sectors, using skilled/unskilled labor or local/foreign purchases/sales, might inform researchers about the productivity spillover effects between firms.
-
-In the gross output production function framework, an output shock and a productivity shock form the error term. The output shock is independent of the inputs (usually, capital, labor, and intermediates), is not serially or cross-sectionally correlated, and has mean zero.
-
-Productivity, on the other hand, is observed by the firm when choosing input quantities, but unobserved by the econometrician. The well-known *simultaneity* problem. In addition, productivity is assumed to follow a Markov process. The rationale is that productivity is persistent. Researchers assume in practice a linear AR(1) functional form.
-
-Because production functions are commonly estimated by industry sector, both the error term and productivity have sector specific variances. Researchers assume technology in the same industry is common for all industries. Hence, firms vary only in their productivity. 
-
-I can leave the error term as a random output shock and focus on productivity. If we think about technology and how it diffuses through the economy and how innovations in one sector spill over to other sectors and companies, we can back up the estimates with a solid theoretical model.
-
-## Setting
-
-Firms produce gross output $Y_{it}$ given a production function $Y_{it}=G(K_{it},L_{it},M_{it})e^{\omega_{it}+\varepsilon_{it}}$ and a productivity shock $\omega_{it}$ using capital $K_{it}$, labor $L_{it}$, and intermediates $M_{it}$. 
-
-$$
-y_{it}=g(k_{it},l_{it},m_{it})+\omega_{it}+\varepsilon_{it}
-$$
-
-where $\varepsilon_{it}$ is an output shock that is not part of the information set of the firm. The productivity shock $\omega_{it}$ is known when taking input decisions, giving rise to the well-known simultaneity problem in estimating production functions. It is usually assumed that the output shock is iid, and that the productivity shock follows a Markov process[^conley]. In practice, researchers assume an AR(1) model
-
-$$
-\omega_{it}=h(\omega_{it-1})+\eta_{it}
-$$
-
-where $\eta_{it}$ is iid
-
-[^conley]: In @Conley2003, $\omega_{it}$ is serially uncorrelated, independent of $\varepsilon_{it}$, expectation zero, but it is correlated across sectors as a function of economic distance. $\varepsilon_{it}$ is serially uncorrelated, independent across sectors with sector-specific variance.
-
-## Location and dissimilarity measure
-
-The firm-level Colombian data contains information on firm's characteristics, inputs, and outputs. The data also indicates the firms' metropolitan area and country region.  
-
-I could construct several dissimilarity measures:
-
-1. Labor market [@Conleyetal2003]: The Colombian data includes firm-level labor detailed by skilled and unskilled labor, as well as managers, local and foreign technicians, their wages and benefits. 
-2. Industry sectors [@Conley2003]: In the case of the Colombian data, the firm-level survey does not detail sales per sector. However, it does include the share of local and export sales, and the share of locally and imported inputs. It also includes the firm's four-digit sector code; industries are usually defined at the three-digit level.
-3. Firm characteristics: The data also details firms' value of capital in land, buildings, machinery, and office equipment; it also contains some details on industrial expenses such as maintenance and industrial work by other establishment; and general expenses such as publicity and insurances.
-
-## To do
-
-- Investigate if there exist an input-output matrix by industry sector for Colombia 80s.
-- What are these metropolitan areas? Is there geographical information, latitude and altitude? 
-- Can other dataset be linked to these areas, like a Census.
+<!-- Intro -->
+{{< include sections/001-gnr-sims.qmd >}}
 
 
 ## References {-}

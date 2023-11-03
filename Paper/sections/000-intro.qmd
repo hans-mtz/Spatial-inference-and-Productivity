@@ -1,0 +1,20 @@
+
+## Intro {-}
+
+Key Idea: Review the latest spatial inference estimators on gross output production functions framework using firm-level Colombian data [à la @Conley2018].
+
+Using several dissimilarity measures, I could compare the latest spatial inference methods, including different ways of clustering the standard errors. How? I could construct dissimilarity measures using firms' characteristics such as the share of skilled and unskilled labor, or the share of imports and exports. With the dissimilarity measures on hand, I can also compare MW's [@Muller2022JBES; @Muller2022ECTA] and Kernel estimators. In addition, I can compare traditional s.e. clustering[^clust] with the cluster-learning method by @Cao2021.
+
+[^clust]: Because these variables are available in the Colombian data, it is natural for researchers to cluster the standard errors by metropolitan area or by subsectors.
+
+To the best of my understanding, there is no guide regarding the best practices when dealing with the inference in the estimation of gross-output production functions. The literature has focused on obtaining production function and productivity unbiased estimates.
+
+Alternatively, the productivity variance-covariance matrix might be of interest to researchers and policy-makers. For example, the productivity variance-covariance matrix across sectors could indicate how productivity shocks diffuse through other sectors across the economy. This might be of interest to policymakers because they can impulse policies that have the largest positive effect on the whole economy. The Var-Covar matrix within sectors, using skilled/unskilled labor or local/foreign purchases/sales, might inform researchers about the productivity spillover effects between firms.
+
+In the gross output production function framework, an output shock and a productivity shock form the error term. The output shock is independent of the inputs (usually, capital, labor, and intermediates), is not serially or cross-sectionally correlated, and has a mean zero.
+
+Productivity, on the other hand, is observed by the firm when choosing input quantities, but unobserved by the econometrician. The well-known *simultaneity* problem. In addition, productivity is assumed to follow a Markov process. The rationale is that productivity is persistent. Researchers assume in practice a linear AR(1) functional form.
+
+Because production functions are commonly estimated by the industry sector, both the error term and productivity have sector-specific variances. Researchers assume technology in the same industry is common for all industries. Hence, firms vary only in their productivity. 
+
+I can leave the error term as a random output shock and focus on productivity. If we think about technology and how it diffuses through the economy and how innovations in one sector spill over to other sectors and companies, we can back up the estimates with a solid theoretical model.
